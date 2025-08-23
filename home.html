@@ -43,7 +43,9 @@
             <img class="h-12" src="./assets/Group.png" alt="" />
           </div>
           <div>
-            <h2 class="font-bold">$<span>450000</span></h2>
+            <h2 class="font-bold">
+              $<span id="available-balance">450000</span>
+            </h2>
             <p class="text-[#08080880]">Available Balance</p>
           </div>
         </div>
@@ -98,7 +100,10 @@
           <div>
             <label class="font-semibold" for="">Select A Bank</label>
             <br />
-            <select class="select rounded-3xl bg-[#f4f5f7] w-full mt-3">
+            <select
+              id="bank-select"
+              class="select rounded-3xl bg-[#f4f5f7] w-full mt-3"
+            >
               <option disabled selected>Select Bank</option>
               <option>EBL</option>
               <option>Brac</option>
@@ -109,6 +114,7 @@
             <label class="font-semibold" for="">Bank Account Number</label>
             <br />
             <input
+              id="bank-acc"
               type="text"
               placeholder="Enter 11 digit account number"
               class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full"
@@ -118,6 +124,7 @@
             <label class="font-semibold" for="">Amount to Add</label>
             <br />
             <input
+              id="money-add"
               type="text"
               placeholder="Add Amount to withdraw"
               class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full"
@@ -127,12 +134,14 @@
             <label class="font-semibold" for="">4 Digit Pin</label>
             <br />
             <input
-              type="text"
+              id="pin-num"
+              type="password"
               placeholder="Enter 4 Digit Pin"
               class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full"
             />
           </div>
           <button
+            id="add-money"
             class="btn bg-[#0874f2] mt-4 w-full rounded-3xl border-none text-white"
           >
             Add Money
