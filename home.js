@@ -1,3 +1,5 @@
+const transactionData = [];
+
 // function to get input values
 
 function getInputValueNumber(id) {
@@ -53,6 +55,12 @@ newaddMoney.addEventListener("click", (e) => {
   const newAvailableBalance = addAmount + availableBalance;
   console.log(newAvailableBalance);
   document.getElementById("available-balance").innerText = newAvailableBalance;
+
+  const data = {
+    name: "Add Money",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 // cash out
@@ -66,6 +74,12 @@ document.getElementById("cashout-btn").addEventListener("click", (e) => {
   );
   let newAmount = availableBalance - amount;
   document.getElementById("available-balance").innerText = newAmount;
+
+  const data = {
+    name: "Cash Out",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 // transfer money
@@ -85,6 +99,12 @@ document
     const totalAvailableBalance = availableBalance - parseInt(transferAmount);
     document.getElementById("available-balance").innerText =
       totalAvailableBalance;
+
+    const data = {
+      name: "Transfer Money",
+      date: new Date().toLocaleTimeString(),
+    };
+    transactionData.push(data);
   });
 
 // get bonus
@@ -95,6 +115,12 @@ document.getElementById("cupon-btn").addEventListener("click", () => {
   const availableBalance = parseInt(
     document.getElementById("available-balance").innerText
   );
+
+  const data = {
+    name: "Add Money",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 // pay bill
@@ -109,6 +135,11 @@ document.getElementById("pay-now-btn").addEventListener("click", () => {
   const availableBalance = parseInt(
     document.getElementById("available-balance").innerText
   );
+  const data = {
+    name: "Bill Payment",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 // transaction History
@@ -152,6 +183,24 @@ document.getElementById("pay-bill-btn").addEventListener("click", (e) => {
 document.getElementById("transaction-btn").addEventListener("click", (e) => {
   toggleHandler("transaction-parent");
   formButtonHandler("transaction-btn");
+
+  const transactionContainer = document.getElementById("transaction-container");
+  for (const data of transactionData) {
+    const div = document.createElement("div");
+    div.innerHTML = ` <div class=" flex items-center justify-between">
+            <div class="flex items-center ">
+              <div class="p-3 rounded-full bg-[#f4f5f7]">
+                <img class="mx-auto" src="./assets/wallet1.png" alt="" />
+              </div>
+              <div>
+                <h1>${data.name}</h1>
+                <p>${data.date}</p>
+              </div>
+            </div>
+              <i  class="fa-solid fa-ellipsis-vertical"></i>
+            </div>`;
+    transactionContainer.appendChild(div);
+  }
 });
 
 // form button toggle
