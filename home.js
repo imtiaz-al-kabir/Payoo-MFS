@@ -15,6 +15,20 @@ function toggleHandler(id) {
   document.getElementById(id).style.display = "block";
 }
 
+// toggle form button handler
+
+function formButtonHandler(id) {
+  const formButtons = document.getElementsByClassName("form-btn");
+  for (const button of formButtons) {
+    button.classList.remove("border-[#0874f2]", "bg-[#0874f20d]");
+    button.classList.add("border-[#0808081a]");
+  }
+  document.getElementById(id).classList.remove("border-[#0808081a]");
+  document
+    .getElementById(id)
+    .classList.add("border-[#0874f2]", "bg-[#0874f20d]");
+}
+
 // add money
 
 const newaddMoney = document.getElementById("add-money");
@@ -101,21 +115,43 @@ document.getElementById("pay-now-btn").addEventListener("click", () => {
 
 // toggle
 
+// add money
+
 document.getElementById("add-money-btn").addEventListener("click", (e) => {
   toggleHandler("add-money-parent");
+
+  formButtonHandler("add-money-btn");
 });
+
+// cash out
+
 document.getElementById("cash-out-btn").addEventListener("click", (e) => {
   toggleHandler("cash-out-parent");
+  formButtonHandler("cash-out-btn");
 });
+
+// transfer money
 document.getElementById("transfer-money-btn").addEventListener("click", (e) => {
   toggleHandler("transfer-money-parent");
+  formButtonHandler("transfer-money-btn");
 });
+
+// get bonus
 document.getElementById("get-bonus-btn").addEventListener("click", (e) => {
   toggleHandler("get-bonus-parent");
+  formButtonHandler("get-bonus-btn");
 });
+
+//pay bill
 document.getElementById("pay-bill-btn").addEventListener("click", (e) => {
   toggleHandler("pay-bill-parent");
+  formButtonHandler("pay-bill-btn");
 });
+
+//transaction
 document.getElementById("transaction-btn").addEventListener("click", (e) => {
   toggleHandler("transaction-parent");
+  formButtonHandler("transaction-btn");
 });
+
+// form button toggle
