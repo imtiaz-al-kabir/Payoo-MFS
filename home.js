@@ -203,4 +203,6 @@ document.getElementById("transaction-btn").addEventListener("click", (e) => {
   }
 });
 
-// form button toggle
+document.getElementById("logout").addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
