@@ -197,7 +197,7 @@ document.getElementById("transaction-btn").addEventListener("click", (e) => {
                 <p>${data.date}</p>
               </div>
             </div>
-              <i  class="fa-solid fa-ellipsis-vertical"></i>
+              <i  class="fa-solid fa-ellipsis-vertical pl-[300px]"></i>
             </div>`;
     transactionContainer.appendChild(div);
   }
