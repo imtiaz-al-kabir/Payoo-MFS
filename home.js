@@ -1,7 +1,8 @@
+// add money
+
 const newaddMoney = document.getElementById("add-money");
 newaddMoney.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("Clicked");
   const validPin = "1234";
   const bank = document.getElementById("bank-select").value;
   const accountNumber = document.getElementById("bank-acc").value;
@@ -21,4 +22,27 @@ newaddMoney.addEventListener("click", (e) => {
   const newAvailableBalance = addAmount + availableBalance;
   console.log(newAvailableBalance);
   document.getElementById("available-balance").innerText = newAvailableBalance;
+});
+
+// cash out
+document.getElementById("cashout-btn").addEventListener("click", () => {
+  const amount = document.getElementById("cashout-money").value;
+  const agenTNumber = document.getElementById("agent-num");
+  const pin = document.getElementById("cash-pin");
+  const availableBalance = parseInt(
+    document.getElementById("available-balance").innerText
+  );
+  let newAmount = availableBalance - amount;
+  document.getElementById("available-balance").innerText = newAmount;
+});
+
+// toggle
+
+document.getElementById("add-money-btn").addEventListener("click", () => {
+  document.getElementById("cash-out-parent").style.display = "none";
+  document.getElementById("add-money-parent").style.display = "block";
+});
+document.getElementById("cash-out-btn").addEventListener("click", () => {
+  document.getElementById("add-money-parent").style.display = "none";
+  document.getElementById("cash-out-parent").style.display = "block";
 });
